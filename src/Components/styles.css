@@ -1,0 +1,50 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  .Navbar {
+    min-height: 2rem;
+    box-shadow: 0 0 0 0.1px;
+    margin-top: 0;
+  }
+  .content {
+    margin-top: 20px;
+    padding: 0 25px;
+    display: grid;
+    grid-template-columns: 20% 80%;
+  }
+  .leftPanel {
+    border: 1px solid #ededed;
+    /* min-height: 700px; */
+  }
+  .filter__header {
+    display: flex;
+    padding: 0 8px;
+    border-bottom: 1px solid #ededed;
+  }
+  .item-header {
+    display: flex;
+    font-size: 15px;
+  }
+  .item-container {
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    padding: 5%;
+    gap: 30px;
+  }
+  .leftPanel__container {
+    height: auto;
+  }
+  .filter__category {
+    font-weight: normal;
+    display: grid;
+    grid-template-columns: 95% 5%;
+    padding: 15px;
+    border-bottom: 1px solid #ededed;
+  }
+
+  .form-check-input:hover{
+    background-color: red;
+    cursor: pointer;
+    color: white;
+  }
