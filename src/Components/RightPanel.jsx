@@ -1,4 +1,6 @@
 import InfiniteScroll from "react-infinite-scroll-component";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faHeart } from "@fortawesome/free-solid-svg-icons";
 export default function RightPanel({ products,fetchMoreData}) {
     return (
       <div>
@@ -11,7 +13,8 @@ export default function RightPanel({ products,fetchMoreData}) {
            <div className="item-container">
            {products.map((n) => (
             <div style={{ marginBottom: "50px" }}>
-              <div>
+              <div className="slide-box">
+              <div className="icon"><i class="far fa-heart"></i></div>
                 <img src={n.image} />
               </div>
               <div className="item-header">{n.name}</div>

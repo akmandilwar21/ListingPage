@@ -28,9 +28,9 @@
   }
   .item-container {
     display: grid;
-    grid-template-columns: 24% 24% 24% 24%;
-    padding: 5%;
-    gap: 30px;
+    grid-template-columns: 25% 25% 25% 25%;
+    padding: 4%;
+    gap: 20px;
   }
   .leftPanel__container {
     height: auto;
@@ -47,4 +47,21 @@
     background-color: red;
     cursor: pointer;
     color: white;
+  }
+  .icon{
+    position: absolute;
+    z-index: 1;
+    color: #000;
+    background-color: #d7d5e2;
+    left: 5%;
+    top: 2%;
+    padding: 10px 4px 0px 4px;
+    /* padding-top: 9px; */
+    width: 28px;
+    height: 28px;
+    font-size: 19px;
+    border-radius: 50%;
+  }
+  .slide-box{
+    position: relative;
   }
