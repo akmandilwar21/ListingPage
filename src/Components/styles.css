@@ -19,7 +19,7 @@
   }
   .filter__header {
     display: flex;
-    padding: 0 8px;
+    padding: 0 15px;
     border-bottom: 1px solid #ededed;
   }
   .item-header {

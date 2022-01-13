@@ -11,10 +11,20 @@ class BottomHeader extends React.Component {
   };
   async componentDidUpdate(prevProps) {
     if (this.props !== prevProps) {
-      let x = await axios.get(
-        "https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-kurtas&page=1&count=20&sort_by=&sort_dir=desc&filter="+ this.props.location.state
-      );
-      this.setState({ products: x.data.result.products });
+      if(this.props.location.state){
+         
+        let x = await axios.get(
+          "https://pim.wforwomanonline.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-kurtas&page=1&count=20&sort_by=&sort_dir=desc&filter="+ this.props.location.state 
+        );
+        this.setState({ products: x.data.result.products });
+        }
+        else {    
+        let x = await axios.get(
+          "https://pim.wforwomanonline.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-kurtas&page=1&count=20&sort_by=&sort_dir=desc&filter="
+        );
+       
+        this.setState({ products: x.data.result.products });
+        }
      
     }
   }
@@ -23,15 +33,17 @@ class BottomHeader extends React.Component {
     if(this.props.location.state){
          
     let x = await axios.get(
-      "https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-kurtas&page=1&count=20&sort_by=&sort_dir=desc&filter="+ this.props.location.state 
+      "https://pim.wforwomanonline.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-kurtas&page=1&count=20&sort_by=&sort_dir=desc&filter="+ this.props.location.state 
     );
+    console.log(x.data.result.products);
     this.setState({ products: x.data.result.products });
     }
     else {
 
     let x = await axios.get(
-      "https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-kurtas&page=1&count=20&sort_by=&sort_dir=desc&filter="
+      "https://pim.wforwomanonline.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-kurtas&page=1&count=20&sort_by=&sort_dir=desc&filter="
     );
+   
     this.setState({ products: x.data.result.products });
     }
   } 
@@ -39,7 +51,7 @@ class BottomHeader extends React.Component {
     // a fake async api call like which sends
     // 20 more records in 1.5 secs
       let x = await axios.get(
-        "https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-kurtas&page=1&count=20&sort_by=&sort_dir=desc&filter="
+        "https://pim.wforwomanonline.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-kurtas&page=1&count=20&sort_by=&sort_dir=desc&filter="
       );
       let newProduct=[...this.state.products,...x.data.result.products];
       await this.setState({ products: newProduct });
