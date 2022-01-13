@@ -3,7 +3,7 @@ import axios from "axios";
 import { render } from "react-dom";
 import LeftPanel from "./LeftPanel.jsx";
 import RightPanel from "./RightPanel.jsx";
-import InfiniteScroll from "react-infinite-scroll-component";
+
 
 class BottomHeader extends React.Component {
   state = {
@@ -35,15 +35,15 @@ class BottomHeader extends React.Component {
     this.setState({ products: x.data.result.products });
     }
   } 
-  fetchMoreData = () => {
+  fetchMoreData = async() => {
     // a fake async api call like which sends
     // 20 more records in 1.5 secs
-    setTimeout(async() => {
       let x = await axios.get(
         "https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-kurtas&page=1&count=20&sort_by=&sort_dir=desc&filter="
       );
-      this.setState({ products: x.data.result.products });
-    }, 1500);
+      let newProduct=[...this.state.products,...x.data.result.products];
+      await this.setState({ products: newProduct });
+    
   };
   render() {
     return (
@@ -52,14 +52,9 @@ class BottomHeader extends React.Component {
           <LeftPanel {...this.props} />
         </div>
         <div className="RightPanel">
-          <RightPanel products={this.state.products} />
+          <RightPanel products={this.state.products} fetchMoreData={this.fetchMoreData}/>
         </div>
-        <InfiniteScroll
-          dataLength={this.state.products.length}
-          next={this.fetchMoreData}
-          hasMore={true}
-          loader={<h4>Loading...</h4>}
-        ></InfiniteScroll>
+  
       </div>
     );
   }

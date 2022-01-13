@@ -24,7 +24,7 @@
   }
   .item-header {
     display: flex;
-    font-size: 15px;
+    font-size: 13px;
   }
   .item-container {
     display: grid;

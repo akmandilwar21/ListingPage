@@ -1,8 +1,15 @@
-export default function RightPanel({ products }) {
+import InfiniteScroll from "react-infinite-scroll-component";
+export default function RightPanel({ products,fetchMoreData}) {
     return (
       <div>
-        <div className="item-container">
-          {products.map((n) => (
+       <div>
+        <InfiniteScroll
+          dataLength={products.length}
+          next={fetchMoreData}
+          hasMore={true}
+          loader={<h4>Loading...</h4>}        > 
+           <div className="item-container">
+           {products.map((n) => (
             <div style={{ marginBottom: "50px" }}>
               <div>
                 <img src={n.image} />
@@ -13,7 +20,9 @@ export default function RightPanel({ products }) {
               </div>
             </div>
           ))}
-        </div>
+          </div>
+        </InfiniteScroll>
+         </div>
       </div>
     );
   }
